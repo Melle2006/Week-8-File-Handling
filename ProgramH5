@@ -1,0 +1,21 @@
+/*Program to append one file to another*/
+#include <stdio.h>
+int main()
+{
+	FILE *fp1, *fp2;
+	char s1[100], s2[100], c;
+	fp1 = fopen("abc.txt", "w+");
+	fp2 = fopen("def.txt", "w+");
+	printf("Enter string 1: ");
+	scanf("%s",s1);
+	printf("Enter string 2: ");
+	scanf("%s", s2);
+	fprintf(fp1, "%s", s1);
+	fprintf(fp2, "%s", s2);
+	fseek(fp1, 0, 0);
+	while ((c=getc(fp1))!=EOF)
+	{
+		putc(c, fp2);
+	}
+	return 0;
+}
