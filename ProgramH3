@@ -1,0 +1,21 @@
+/*Program to copy content of one file to another*/
+#include <stdio.h>
+int main()
+{
+	int c;
+	FILE *fp1, *fp2;
+	fp1 = fopen("abc.txt", "w+");
+	fp2 = fopen("def.txt", "w+");
+	char s[100];
+	printf("Enter string: ");
+	scanf("%s", s);
+	fprintf(fp1, "%s", s );
+	fseek(fp1, 0, 0);
+	while((c=getc(fp1))!=EOF)
+	{
+		putc(c, fp2);
+	}
+	fclose(fp1);
+	fclose(fp2);
+	return 0;
+}
