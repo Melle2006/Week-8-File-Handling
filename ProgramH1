@@ -1,0 +1,22 @@
+/*Program to read and display text from file*/
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	
+	FILE *fp;
+	fp = fopen("INPUT.txt", "w+");
+	char s[100];
+	
+	printf("Input string: ");
+	scanf("%[^\n]s", s);
+	fprintf(fp, "%s", s);
+	fseek(fp, 0, 0);
+	
+		fscanf(fp, "%[^\n]s", s);
+		printf("%s", s);
+	
+
+	close(fp);
+	return 0;
+}
