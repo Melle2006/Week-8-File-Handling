@@ -1,0 +1,27 @@
+/*Program to sort numbers into odd and even*/
+#include <stdio.h>
+int main()
+{
+    FILE *fp, *fp1, *fp2;
+	fp = fopen("data.txt", "w+");
+	fp1=fopen("even.txt", "w+");
+	fp2=fopen("odd.txt", "w+");
+	int i, m;
+	for (i=0; i<5; i++)
+		fprintf(fp, "%d ", i);
+	fseek(fp, 0, 0);
+	while(fscanf(fp,"%d",&m)!=EOF)
+		{
+		   if(m%2==0)
+		 {
+			fprintf(fp1, "%d ", m);
+		 }
+		else
+		 {
+			fprintf(fp2, "%d ", m);
+	 	 }
+        }
+
+	close(fp);
+	return 0;
+}
